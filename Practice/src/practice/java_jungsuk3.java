@@ -2,7 +2,7 @@ package practice;
 
 public class java_jungsuk3 {
 	public static void main(String[] args) {
-		prac3_8();
+		prac3_10();
 	}
 	
 	public static void prac3_1(){
@@ -21,6 +21,7 @@ public class java_jungsuk3 {
 		System.out.println(++c); 			// B
 		System.out.println(c++); 			// B
 		System.out.println(c); 				// C
+		
 	} 
 	
 	public static void prac3_2(){
@@ -50,6 +51,7 @@ public class java_jungsuk3 {
 		int num = 10;
 		String i = num > 0 ? "양수" : (num < 0 ? "음수" : "0");
 		System.out.println(i); 
+		
 	}
 	public static void prac3_4(){
 		
@@ -67,6 +69,7 @@ public class java_jungsuk3 {
 		
 		int num = 333;
 		System.out.println(num/10*10+1); 
+		
 	}
 	public static void prac3_6(){
 		
@@ -91,6 +94,7 @@ public class java_jungsuk3 {
 		
 		System.out.println("Fahrenheit:"+fahrenheit);
 		System.out.println("Celcius:"+celcius);
+		
 	}
 	
 	public static void prac3_8(){
@@ -100,19 +104,50 @@ public class java_jungsuk3 {
 		byte b = 20;
 		int c = a + b;
 		char ch = 'A';
-		ch = (char)((byte)ch+2);
-		float f = 3 / 2;
-		long l = 3000 * 3000 * 3000;
+		ch = (char)(ch+2);
+		float f = (float)3 / 2;
+		long l = 3000 * 3000 * 3000l;
 		float f2 = 0.1f;
 		double d = 0.1;
-		boolean result = d==f2;
+		boolean result = (float)d==f2;
 		System.out.println("c="+c);
 		System.out.println("ch="+ch);
 		System.out.println("f="+f);
 		System.out.println("l="+l);
 		System.out.println("result="+result);
+		
+	}
+	public static void prac3_9(){
+		
+		//	다음은 문자형 변수 가 영문자 대문자 또는 소문자 이거나 숫자일 때만 변수 ch ( ) b
+		//	의 값이 가 되도록 하는 코드이다 에 알맞은 코드를 넣으시오 true . (1) .
+
+		char ch = 'z';
+		System.out.println((byte)'a');
+		System.out.println((byte)'z');
+		System.out.println((byte)'A');
+		System.out.println((byte)'Z');
+		System.out.println((byte)'0');
+		System.out.println((byte)'9');
+		boolean b = (48 <= ch && ch <= 57) || 
+					(65 <= ch && ch <= 90) || 
+					(97 <= ch && ch <= 122) ? true : false;
+		System.out.println(b);
+		
 	}
 	
+	public static void prac3_10(){
+		
+		//	다음은 대문자를 소문자로 변경하는 코드인데 문자 에 저장된 문자가 대문자 , ch
+		//	인 경우에만 소문자로 변경한다 문자코드는 소문자가 대문자보다 만큼 더 크다 예를 . 32 .
+		//	들어 의 코드는 이고 의 코드는 이다 에 알맞은 코드를 넣으시오 
+
+		char ch = 'A';
+		char lowerCase = ( 'A' <= ch && ch <= 'Z' ) ? (char)(ch+32) : ch;
+		System.out.println("ch:"+ch);
+		System.out.println("ch to lowerCase:"+lowerCase);
+		
+	}	
 	
 }
 
