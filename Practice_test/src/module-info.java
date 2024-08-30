@@ -4,5 +4,5 @@
 /**
  * 
  */
-module Practice {
+module Practice_test {
 }
