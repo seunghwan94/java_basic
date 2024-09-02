@@ -2,13 +2,14 @@ package practice;
 
 public class lets_java {
 	public static void main(String[] args) {
-		prac_4_1();
-		prac_4_2();
-		prac_4_3();
-		prac_4_4();
-		prac_4_5();
-		prac_4_6();
-		prac_4_7();
+//		prac_4_1();
+//		prac_4_2();
+//		prac_4_3();
+//		prac_4_4();
+//		prac_4_5();
+//		prac_4_6();
+//		prac_4_7();
+		prac_5_1();
 	}
 	public static void prac_4_1() {
 		// 다음연산자들의 의미를 설명하시오.
@@ -81,8 +82,24 @@ public class lets_java {
 		int number = 1234;
 		int result = number / 100 * 100;
 		
-		System.out.println(result);
+		System.out.println(result);	
+	}
+	public static void prac_5_1() {
+		// 1부터 100까지의 정수 중 5의 배수의 합계를 출력하는 프로그램을 작성하시오.
+		int sum = 0;
+		for (int i = 0;i <= 100; i+=5) {
+			sum+=i;
+		}
+		System.out.println(sum);
 		
 	}
-	
+	public static void prac_5_2() {
+		// 1부터 100까지의 수 중 짝수와 홀수의 합을 각각 구하시오.
+		int sum = 0;
+		for (int i = 0;i <= 100; i+=5) {
+			sum+=i;
+		}
+		System.out.println(sum);
+		
+	}
 }

@@ -34,10 +34,10 @@ public class SwitchEx3 {
 			System.out.println(check);
 			
 			if(check.equals("no")) {
-				scanner.close();
+
 				break;
 			}
-			
+			scanner.close();
 		}
 		
 	}
