@@ -10,6 +10,12 @@ public class lets_java {
 //		prac_4_6();
 //		prac_4_7();
 		prac_5_1();
+		prac_5_2();
+		prac_5_3();
+		prac_5_4();
+		prac_5_5();
+		prac_5_6();
+		prac_5_7();
 	}
 	public static void prac_4_1() {
 		// 다음연산자들의 의미를 설명하시오.
@@ -95,11 +101,91 @@ public class lets_java {
 	}
 	public static void prac_5_2() {
 		// 1부터 100까지의 수 중 짝수와 홀수의 합을 각각 구하시오.
-		int sum = 0;
-		for (int i = 0;i <= 100; i+=5) {
-			sum+=i;
+		int sumEvenNumber = 0;
+		int sumOddNumber = 0;
+		
+		for (int i = 0;i <= 100; i++) {
+			if (i % 2 == 0) {
+				sumEvenNumber+=i;
+			}else {
+				sumOddNumber+=i;
+			}
 		}
-		System.out.println(sum);
+		System.out.println(sumEvenNumber);
+		System.out.println(sumOddNumber);
+		
+	}
+	public static void prac_5_3() {
+		// 두 개의 주사위의 두 눈의 합이 6이 되는 모든 경우의 수를 출력해라
+		for (int x = 1; x <= 6; x++) {
+			for (int y = 1; y <= 6; y++) {
+				if( x + y == 6 ) {
+					System.out.println(x + " + " + y + " = " + (int)(x+y));					
+				}
+			}
+		}
+		
+	}
+	public static void prac_5_4() {
+		// 두 개의 주사위의 두 눈의 합이 6이 되는 모든 경우의 수를 출력해라
+		for (int i = 1; i <= 5; i++) {
+			for (int j = 1; j <= 5; j++) {
+//				System.out.print("(" + i + ", " + j + ")");
+				if (i >= j) {
+					System.out.print("*");
+				}else {
+					System.out.print(" ");
+				}
+			}
+			System.out.println();
+		}
+		
+	}
+	public static void prac_5_5() {
+		// 두 개의 주사위의 두 눈의 합이 6이 되는 모든 경우의 수를 출력해라
+		for (int i = 1; i <= 5; i++) {
+			for (int j = 1; j <= 5; j++) {
+//				System.out.print("(" + i + ", " + j + ")");
+				if (i <= j) {
+					System.out.print("*");
+				}else {
+					System.out.print(" ");
+				}
+			}
+			System.out.println();
+		}
+		
+	}
+	public static void prac_5_6() {
+		// 두 개의 주사위의 두 눈의 합이 6이 되는 모든 경우의 수를 출력해라
+		for (int i = 1; i <= 5; i++) {
+			for (int j = 1; j <= 9; j++) {
+//				System.out.print("(" + i + ", " + j + ")");
+				if (j == 5 || j + i >= 6 && j - i <= 4 ) {
+					System.out.print("*");
+				}else {
+					System.out.print(" ");
+				}
+			}
+			System.out.println();
+		}
+		
+	}
+	public static void prac_5_7() {
+		// 주사위의 눈이 6이 나올때까지 반복하는 코드 작성 (while)
+		int num = 0;
+		int cnt = 0;
+		boolean check = true;
+		while (check) {
+			num = (int)(Math.random() * 6 + 1);
+			System.out.println(num);
+			if (num == 6) {
+				System.out.println("cnt : " + cnt);
+				check = false;
+			}
+			cnt++;
+		}
+		
 		
 	}
 }
