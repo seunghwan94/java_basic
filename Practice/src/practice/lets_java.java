@@ -9,12 +9,14 @@ public class lets_java {
 //		prac_4_5();
 //		prac_4_6();
 //		prac_4_7();
+		
 		prac_5_1();
 		prac_5_2();
 		prac_5_3();
 		prac_5_4();
 		prac_5_5();
 		prac_5_6();
+		prac_5_6_2();// 알려주신 방법
 		prac_5_7();
 	}
 	public static void prac_4_1() {
@@ -171,13 +173,27 @@ public class lets_java {
 		}
 		
 	}
+	public static void prac_5_6_2() {
+		// 두 개의 주사위의 두 눈의 합이 6이 되는 모든 경우의 수를 출력해라
+		for (int i = -2; i <= 3; i++) {
+			for (int j = -2; j <= 3; j++) {
+//				System.out.print("(" + i + ", " + j + ")");
+				if (i * j >= -1 && i * j <= 1) {
+					System.out.print("*");
+				}else {
+					System.out.print(" ");
+				}
+			}
+			System.out.println();
+		}
+		
+	}
 	public static void prac_5_7() {
 		// 주사위의 눈이 6이 나올때까지 반복하는 코드 작성 (while)
-		int num = 0;
 		int cnt = 0;
 		boolean check = true;
 		while (check) {
-			num = (int)(Math.random() * 6 + 1);
+			int num = (int)(Math.random() * 6 + 1);
 			System.out.println(num);
 			if (num == 6) {
 				System.out.println("cnt : " + cnt);
