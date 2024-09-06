@@ -4,6 +4,5 @@
 /**
  * 
  */
-module lesson07_oop {
-	
+module lesson08_extend {
 }

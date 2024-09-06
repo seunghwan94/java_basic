@@ -1,5 +1,6 @@
 package practice;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -25,8 +26,26 @@ public class test {
 //				System.out.println(Arrays.toString(rlt));
 	}
 	public static void test1() {
-		int[] numbers = {1, 2, -3, 4, -5};
-		int answer = 0;
+		String my_string = "hello";
+		int num1 = 1;
+		int num2 = 2;
+		
+		String answer = "";
+
+		
+		char tmp1 = my_string.charAt(num1);
+		char tmp2 = my_string.charAt(num2);
+		
+		for (int i = 0; i < my_string.length(); i++) {
+			if(i == num1) answer += tmp2;
+			else if(i == num2) answer += tmp1;
+			else answer += my_string.charAt(i);
+		}
+		
+		System.out.println(answer);
+		
+//        my_string[num2]; = answer;
+
 		
 		
 		

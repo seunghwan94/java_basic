@@ -54,36 +54,28 @@ public class Exer {
 		}
 		
 	}
+	
 	public static void prac2() {
 		Scanner scan = new Scanner(System.in);
-		
 		String[] list = new String[2];
 		String[] tmp = {};
-		
 		int cnt = 0;
 		
-		target:
 		while (true) {
 			
 			System.out.println("이름을 입력해라.(종료:q)");
 			String name = scan.nextLine();
 			
 			if (name.equals("q")) {
-				for (int i = 0; i < list.length; i++) {
-					if(list[i]==null) {
-						break target;	
-					}
-					System.out.print(list[i] + "  ");
-				}
-//				System.out.println(Arrays.toString(list));
-//				break;
+				list = Arrays.copyOf(tmp, cnt);
+				System.out.println(Arrays.toString(list));
+				break;
 			}
 			
 			cnt++;
 			if (cnt > list.length) {
-				list = new String[list.length * 2];	
+				list = Arrays.copyOf(list, list.length * 2);
 			}
-			
 			
 			for (int i = 0; i < cnt; i++) {
 				if(i==cnt-1) {
@@ -96,6 +88,7 @@ public class Exer {
 		}
 			
 	}
+	
 	public static void myBubleArray(int[] arr) {
 		for (int i = 0; i < arr.length; i++) {
 			for (int j = 0; j < arr.length; j++) {
