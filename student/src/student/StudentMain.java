@@ -1,7 +1,5 @@
 package student;
 
-import java.util.Scanner;
-
 public class StudentMain {
 	public static void main(String[] args) {
 		// UI 담당
@@ -10,7 +8,6 @@ public class StudentMain {
 		// Read : 학번순 이름순 오름 내림
 		// Delete : 학번을 입력해서 삭제
 		
-		Scanner scanner = new Scanner(System.in);
 		StudentService ss = new StudentService();
 		
 		while(true) {
@@ -31,10 +28,11 @@ public class StudentMain {
 					break;
 					
 				case 4:
-					ss.modify();
+					ss.remove();
 					break;
 					
 				case 5:
+					ss.exit();
 					System.out.println("bye");
 					return;
 				default:

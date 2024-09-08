@@ -15,4 +15,10 @@ public class StudentUtils {
 	static int nextInt(String msg) {
 		return Integer.parseInt(nextLine(msg));
 	}
+
+	static void menuPhrase(String menu, String startOrEnd){
+		System.out.println("\n---------------------------");
+		System.out.printf("%9s 메뉴 %s\n", menu,startOrEnd);
+		System.out.println("---------------------------\n");
+	}
 }
