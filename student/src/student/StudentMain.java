@@ -8,6 +8,11 @@ public class StudentMain {
 		// Read : 학번순 이름순 오름 내림
 		// Delete : 학번을 입력해서 삭제
 		
+		
+		// 필드는 private
+		// 메서드는 public 
+		// 생성자 public (싱글톤 일때만 private)
+		
 		StudentService ss = new StudentService();
 		
 		while(true) {
