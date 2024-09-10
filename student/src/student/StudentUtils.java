@@ -12,7 +12,7 @@ public class StudentUtils {
 		return scanner.nextLine();
 	}
 	
-	static int nextInt(String msg) {
+	public static int nextInt(String msg) {
 		return Integer.parseInt(nextLine(msg));
 	}
 

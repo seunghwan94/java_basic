@@ -1,4 +1,4 @@
-package GameDice;
+package game_dice;
 
 public class Field {
 	int cnt = 0;

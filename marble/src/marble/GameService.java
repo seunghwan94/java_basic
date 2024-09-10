@@ -8,7 +8,7 @@ public class GameService {
 		players[idx++] = new Player("길똥이");
 		players[idx++] = new Player("새똥이");
 		players[idx++] = new Player("소똥이");
-	}
+	} 
 	public void play() {
 		for(int i = 0; ; i++) {
 			
