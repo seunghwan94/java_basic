@@ -19,29 +19,25 @@ public class StudentMain {
 			
 			int input = ss.tryCatchInt("1. 조회 2. 등록 3. 수정 4. 삭제 5. 종료");
 
-			if (input == -1) {
-				continue;
-			}else if(1 > input || input > 5) {
-				System.out.println("1~5번 사이의 숫자만 입력하세요.");
-				continue;
-			} 
+			if (input == -1)continue;
+			if (ss.range(input, 1,5) == -1) continue;
 			
 			switch (input) {
-			case 1:
-				ss.list();
-				break;
-			case 2:
-				ss.add();
-				break;
-			case 3:
-				ss.modify();
-				break;
-			case 4:
-				ss.remove();
-				break;
-			case 5:
-				System.out.println("bye");
-				return;
+				case 1:
+					ss.list();
+					break;
+				case 2:
+					ss.add();
+					break;
+				case 3:
+					ss.modify();
+					break;
+				case 4:
+					ss.remove();
+					break;
+				case 5:
+					System.out.println("bye");
+					return;
 			}
 		}
 	}
