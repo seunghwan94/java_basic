@@ -16,22 +16,19 @@ public class Hexahedron extends Shape implements Shape3D{
 
 	@Override
 	public double area() {
-		return square.area();
+		return (square.area() + square.getY()*h + h*square.getX())*2;
 	}	
 	
 	@Override
 	public double volume() {
-		return area() * h;
+		return square.area() * h;
 	}
-	@Override
-	public double length() {
-		return (square.area() + square.getY()*h + h*square.getX())*2;
-	}
+
 
 	@Override
 	public String toString() {
 		return "육면체 [(x=" + square.getX() + ",h=" + h + ",y=" + square.getY() +
-				        ") 부피=" + volume() + ", 넓이=" + length() + "]";
+				        ") 부피=" + volume() + ", 넓이=" + area() + "]";
 	}
 
 

@@ -24,7 +24,6 @@ public class Square extends Shape implements Shape2D{
 		return y;
 	}
 
-
 	@Override
 	public double length() {
 		

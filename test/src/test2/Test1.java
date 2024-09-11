@@ -1,12 +1,32 @@
 package test2;
 
+import java.util.Arrays;
+
 public class Test1 {
 	public static void main(String[] args) {
-		Test2 test = new Test2(null);
-		test.a();
-		test.b();
-		System.out.println(test);
 		
+		String s = "가";
+		String e = "힣";
+//		System.out.println((int)s.charAt(0));
+//		System.out.println((int)e.charAt(0));
+		System.out.println((int)e.charAt(0)-(int)s.charAt(0));
+
+		
+		
+		char s1 ='가';
+		char e1 = '힣';
+		System.out.println(e1-s1);
+		
+		
+		
+		
+		
+		
+//		Test2 test = new Test2(null);
+//		test.a();
+//		test.b();
+//		System.out.println(test);
+//		
 	}
 
 }

@@ -15,6 +15,7 @@ public class Circle extends Shape implements Shape2D{
 	public void setR(int r) {
 		this.r = r;
 	}
+	
 	@Override
 	public double length() {
 		return (int)((r * 2 * Math.PI)*100)/100d;

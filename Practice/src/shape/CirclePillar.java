@@ -9,25 +9,20 @@ public class CirclePillar extends Shape implements Shape3D{
 		super(name);
 		circle = new Circle(null);
 	}
-
-	@Override
-	public double length() {
-		return circle.length();
+	
+	public void setData(int r, int h) {
+		circle.setR(r);
+		this.h = h;
 	}
-
+	
 	@Override
 	public double area() {
-		return length() * h + circle.area();
+		return circle.length() * h + circle.area();
 	}
 
 	@Override
 	public double volume() {
 		return circle.area() * h;
-	}
-	
-	public void setData(int r, int h) {
-		circle.setR(r);
-		this.h = h;
 	}
 
 	@Override

@@ -4,6 +4,8 @@ import static student_teacher.StudentUtils.*;
 
 import java.util.Arrays;
 
+import student.StudentUtils;
+
 // Logic
 public class StudentService {
 	private Student[] students = new Student[5];
@@ -17,11 +19,14 @@ public class StudentService {
 	}
 	// 학생 등록
 	public void add() {
-		int no = nextInt("학번");
-		String name = nextLine("이름");
-		int kor = nextInt("국어");
-		int eng = nextInt("영어");
-		int mat = nextInt("수학");
+	
+		int no = tryCatchInt("학번");
+		String name = tryCatchStr("이름");
+		
+		int kor = tryCatchInt("국어");
+		int eng = tryCatchInt("영어");
+		int mat = tryCatchInt("수학");
+		
 		if(cnt == students.length) {
 			students = Arrays.copyOf(students, students.length * 2); 
 		}
@@ -35,7 +40,7 @@ public class StudentService {
 		for(int i = 0 ; i < cnt ; i++) {
 			System.out.println(students[i]);
 		}
-		System.out.println(Arrays.toString(students));
+//		System.out.println(Arrays.toString(students));
 	}
 	// 학생 이름, 점수 수정
 	void modify() {
@@ -79,4 +84,49 @@ public class StudentService {
 		}
 		return student;
 	}
+	
+	
+	public int tryCatchInt(String s) {
+		int input;
+		
+		try {
+			input = nextInt(s);
+		}catch(NumberFormatException e){
+			System.out.println(e.getMessage());
+			System.err.println("숫자만 입력하세요.");
+			return -1;
+		}
+		
+		return input;
+	}
+	
+	public String tryCatchStr(String s) {
+		String input;
+		input = nextLine(s);
+		
+		
+		
+		if (2 > input.length() || input.length() > 4) {
+			System.err.println("2~4 사이의 글자로 만들어주세요.");
+		} 
+		
+		for (int i = 0; i < input.length(); i++) {
+			if ((int)("가") <= (int)(input.charAt(i)) && input.charAt(i) <= "힣")	{
+				
+			}
+		}
+		
+		
+		
+		System.out.println((int)(input.charAt(0)));
+
+		return input;
+	}
+	
+	
+	
+	
+	
+	
+	
 }
