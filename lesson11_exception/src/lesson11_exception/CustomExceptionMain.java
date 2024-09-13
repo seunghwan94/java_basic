@@ -1,5 +1,7 @@
 package lesson11_exception;
 
+import student_teacher.RangeException;
+
 public class CustomExceptionMain {
 	public static void main(String[] args) {
 		int num = 192;

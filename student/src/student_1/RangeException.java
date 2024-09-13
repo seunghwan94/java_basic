@@ -1,4 +1,4 @@
-package lesson11_exception;
+package student_1;
 
 public class RangeException extends RuntimeException{
 	int start;
@@ -14,5 +14,9 @@ public class RangeException extends RuntimeException{
 		this.start = start;
 		this.end = end;
 	}
+	public RangeException(String msg) {
+		super(msg);
+	}
+	
 }
 

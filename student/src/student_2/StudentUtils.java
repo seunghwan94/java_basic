@@ -1,4 +1,5 @@
-package student_teacher;
+package student_2;
+
 import java.util.Scanner;
 
 public class StudentUtils {

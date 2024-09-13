@@ -1,8 +1,9 @@
-package student_teacher;
+package student_1;
 
-import static student_teacher.StudentUtils.*;
+import static student_1.StudentUtils.*;
 
 import java.util.Arrays;
+
 
 // Logic
 public class StudentService {
@@ -15,6 +16,38 @@ public class StudentService {
 		students[cnt++] = new Student(3, "말똥이", 20, 92, 10);
 		students[cnt++] = new Student(4, "소똥이", 37, 64, 77);
 	}
+	
+	
+	
+	// 학생 목록 조회
+	public void list() {
+
+		int choise = tryCatchInt("1.학번(오름차순) 2.이름(오름차순) 3.점수(내림차순)");
+		if (choise == -1) return;
+		if (range(choise,1,3) == -1) return;
+
+		Student[] studentsTmp = Arrays.copyOf(students,students.length);
+		
+		// 정렬
+		for(int i = 0; i < cnt; i++){
+			for(int j = 0; j < cnt-1; j++){
+				if(listSort(choise, studentsTmp, j)){
+					Student tmp = studentsTmp[j];
+					studentsTmp[j] = studentsTmp[j+1];
+					studentsTmp[j+1] = tmp;
+				}
+			}
+		}
+		System.out.println("===================================================");
+		System.out.println("학번   이름    국어    영어    수학    총점    평균");
+		System.out.println("===================================================");
+		for(int i = 0 ; i < cnt ; i++) {
+			System.out.println(studentsTmp[i]);
+		}
+
+	}
+	
+	
 	// 학생 등록
 	public void add() {
 	
@@ -38,34 +71,6 @@ public class StudentService {
 			students = Arrays.copyOf(students, students.length * 2); 
 		}
 		students[cnt++] = new Student(no, name, kor, eng, mat);
-	}
-
-	// 학생 목록 조회
-	public void list() {
-
-		int choise = tryCatchInt("1.학번(오름차순) 2.이름(오름차순) 3.점수(내림차순)");
-		if (choise == -1) return;
-		if (range(choise,1,3) == -1) return;
-
-		Student[] studentsTmp = Arrays.copyOf(students,students.length);
-		
-		// 정렬
-		for(int i = 0; i < cnt; i++){
-			for(int j = 0; j < cnt-1; j++){
-				if(listSort(choise, studentsTmp, j)){
-					Student tmp = studentsTmp[j];
-					studentsTmp[j] = studentsTmp[j+1];
-					studentsTmp[j+1] = tmp;
-				}
-			}
-		}
-
-		System.out.println("학번   이름    국어    영어    수학    총점    평균");
-		System.out.println("===================================================");
-		for(int i = 0 ; i < cnt ; i++) {
-			System.out.println(studentsTmp[i]);
-		}
-
 	}
 
 
@@ -111,19 +116,47 @@ public class StudentService {
 
 
 
+	// 정렬 (조회)
+	private boolean listSort(int target, Student[] Tmp, int j){
+        switch (target) {
+            case 1: // 1.학번(오름차순)
+                return Tmp[j].getNo() < Tmp[j+1].getNo();
+            case 2: // 2.이름(오름차순)
+                return Tmp[j].getName().charAt(0) < Tmp[j+1].getName().charAt(0);
+			case 3: // 3.점수(내림차순) 
+				return Tmp[j].total() > Tmp[j+1].total();
+            default:
+                break;
+        }
+        return false;
+	}
+	
+	// 점수 작성 (등록)
+	private int source(String s){
+		int target;
 
+		while(true){
+			target = tryCatchInt(s);
+			target = range(target,0,100);
+			if (target == -1) continue;
+			break;
+		}
+
+		return target;
+	}
+	
+	
 	// 학번 찾기
 	private Student findByNo(int no) {
 		Student student = null;
-
 		for(int i = 0 ; i < cnt ; i++) {
 			if(students[i].getNo() == no) {
 				student = students[i];
 			}
 		}
-
 		return student;
 	}
+	
 	// 숫자만 입력
 	public int tryCatchInt(String s) {
 		int input;
@@ -166,32 +199,7 @@ public class StudentService {
 		}
 		return name;
 	}
-	// 점수 작성
-	private int source(String s){
-		int target;
 
-		while(true){
-			target = tryCatchInt(s);
-			target = range(target,0,100);
-			if (target == -1) continue;
-			break;
-		}
 
-		return target;
-	}
-	// 정렬
-	private boolean listSort(int target, Student[] Tmp, int j){
-        switch (target) {
-            case 1: // 1.학번(오름차순)
-                return Tmp[j].getNo() < Tmp[j+1].getNo();
-            case 2: // 2.이름(오름차순)
-                return Tmp[j].getName().charAt(0) < Tmp[j+1].getName().charAt(0);
-			case 3: // 3.점수(내림차순) 
-				return Tmp[j].total() > Tmp[j+1].total();
-            default:
-                break;
-        }
-        return false;
-	}
 
 }

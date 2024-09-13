@@ -1,6 +1,4 @@
-package student_teacher;
-
-import student.StudentUtils;
+package student_1;
 
 public class StudentMain {
 	public static void main(String[] args) {

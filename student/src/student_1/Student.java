@@ -1,4 +1,4 @@
-package student_teacher;
+package student_1;
 
 //학생 예제 > java beans 명세서에 맞게끔 수정
 //field 는 private, method는 public
@@ -9,6 +9,8 @@ public class Student implements Cloneable{
 	private int eng;
 	private int mat;
 	private int[] arr;
+
+	
 	
 	public Student() {	}
 	
@@ -108,7 +110,6 @@ public class Student implements Cloneable{
 		Student s = (Student)obj;
 		return no == s.no && name.equals(s.name);
 	}
-	
-	
+
 	
 }
