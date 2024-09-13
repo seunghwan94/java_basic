@@ -22,8 +22,8 @@ public class CalendarEx {
 		
 		int year = cal1.get(YEAR);
 		System.out.println(year);
-		System.out.println(cal1.get(MONTH));
-		System.out.println(cal1.get(DAY_OF_MONTH));// 1월 = 0
+		System.out.println(cal1.get(1)); // 1월 = 0
+		System.out.println(cal1.get(DAY_OF_MONTH)); // 13일
 		System.out.println(cal1.get(DAY_OF_WEEK)); // 일요일 = 1, 토요일 = 7
 		System.out.println(cal1.get(DATE));
 		

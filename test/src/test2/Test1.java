@@ -1,22 +1,52 @@
 package test2;
 
+import static java.util.Calendar.DAY_OF_MONTH;
+import static java.util.Calendar.DAY_OF_WEEK;
+
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Test1 {
 	public static void main(String[] args) {
 		
-		String s = "가";
-		String e = "힣";
-//		System.out.println((int)s.charAt(0));
-//		System.out.println((int)e.charAt(0));
-		System.out.println((int)e.charAt(0)-(int)s.charAt(0));
+		SimpleDateFormat sdf = new SimpleDateFormat("yyy-MM-dd HH:mm:ss");
 
 		
+		Calendar cal = Calendar.getInstance();//start
+		Calendar cal2 = Calendar.getInstance();//end
 		
-		char s1 ='가';
-		char e1 = '힣';
-		System.out.println(e1-s1);
+		cal.add(5, -43);
+		System.out.println(sdf.format(cal.getTimeInMillis())); // 1997-04-28		
+		cal2.add(5, -13);
+//		cal2.add(5, -); // end
 		
+		System.out.println(sdf.format(cal2.getTimeInMillis())); // 1997-04-28	
+		
+		int startDay = cal.get(DAY_OF_WEEK);
+		int endDay = cal2.get(DAY_OF_MONTH);
+		
+		int cnt = 0;
+		
+		System.out.printf("%2s %1s %1s %1s %1s %1s %1s","일","월","화","수","목","금","토");
+		System.out.println();
+//		
+		for (int i = 1 - startDay; i <= endDay; i++) {
+			
+			if (i > 0) {
+				System.out.printf("%3d",i);	
+			}else {
+				System.out.printf("%3c",' ');
+			}
+			
+			if (cnt % 7 == 0) {
+				System.out.println();
+			}
+				
+			cnt++;
+			
+		}
 		
 		
 		
