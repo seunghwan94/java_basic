@@ -1,6 +1,6 @@
 package lesson11_exception;
 
-import student_teacher.RangeException;
+import lesson11_exception.RangeException;
 
 public class CustomExceptionMain {
 	public static void main(String[] args) {

@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Lesson_collection
+Bundle-SymbolicName: lesson13_collection
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: lesson.collection
+Bundle-RequiredExecutionEnvironment: JavaSE-17

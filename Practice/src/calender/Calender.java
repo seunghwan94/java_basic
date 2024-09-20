@@ -13,13 +13,16 @@ public class Calender {
 	public static void main(String[] args) {
 		// 달력 출력 (최소 이번달)
 		// 이전달, 다음달, 이전해, 다음해, 특정 연월 입력시 해당 연월 달력 출력
-		Calendar();
+//		Calendar();
 		
 		// URL 분석 (String Class 사용)
-//		URL();
+		URL();
 		
 	
 	}
+	
+	
+	
 	static void Calendar() {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyy-MM-dd");
@@ -64,8 +67,9 @@ public class Calender {
 
 			int startDay = startDay(cal,day);
 			int endDay 	 = endDay(cal,month+1);
-
-			System.out.printf("%11d-%d-%d\n",year,month,day);
+			System.out.println("=====================");
+			System.out.printf("%12d-%d\n",year,month+1);
+			System.out.println("=====================");
 			CalendarView(startDay,endDay);
 		}
 	}
@@ -98,6 +102,8 @@ public class Calender {
 	}
 	
 
+	
+	
 	static void URL() {
 		String str = "https://search.naver.com/search.naver?"
 				+ "sm=tab_hty.top&where=nexearch&ssc=tab.nx.all&query=%EA%B0%80%EB%82%98%EB%8B%A4%EB%9D%BC&oquery=rkskekfk&tqi=iXn%2FWsqpts0ssE0efBossssssEd-375385";
