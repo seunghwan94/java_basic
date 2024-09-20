@@ -1,5 +1,5 @@
-package student_3;
-import static student_3.StudentUtils.*;
+package student_4;
+import static student_4.StudentUtils.*;
 import java.util.*;
 
 
@@ -23,17 +23,23 @@ public class StudentService {
 	}
 	// 학생 등록
 	public void add() {
-		int no = nextInt("학번");
-		if(findBy(no) != null) {
-			throw new RuntimeException("중복되지 않는 학번을 입력하세요");
-		}
-		String name = nextLine("이름");
-		checkName(name);
-		int kor = checkRange(nextInt("국어"));
+		int no = next("학번", Integer.class, (t) -> findBy(t) == null, "중복되지 않는 학번을 입력하세요");
+		String name = next("이름", String.class, (t) -> checkName(t)!=null, "다시 입력하세요.");
+		int kor = next("국어", Integer.class, (t) -> checkRange(t)!=-1, "다시 입력하세요.");
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		int eng = checkRange(nextInt("영어"));
 		int mat = checkRange(nextInt("수학"));
 		
-		students.add(new Student(no, name, kor, eng, mat));
+//		students.add(new Student(no, name, kor, eng, mat));
 	}
 	// 학생 목록 조회
 	public void list() {
@@ -104,11 +110,13 @@ public class StudentService {
 	String checkName(String name) {
 		char[] chs = name.toCharArray();
 		if(chs.length < 2 || chs.length > 4) {
-			throw new RuntimeException("이름은 2글자에서 4글자 사이로 입력하세요");
+			System.out.println("이름은 2글자에서 4글자 사이로 입력하세요");
+			return null;
 		}
 		for(char c : chs) {
 			if(c < '가' || c > '힣') {
-				throw new RuntimeException("한글로 구성된 이름으로 작성하세요");
+				System.out.println("한글로 구성된 이름으로 작성하세요");
+				return null;
 			}
 		}
 		return name;
@@ -120,13 +128,15 @@ public class StudentService {
 	 * @param end 종료 값
 	 * @param return 원래 값
 	 */
-	int checkRange(int number,int start, int end) throws RangeException{
+	int checkRange(int number,int start, int end){
 		if(number < start || number > end) {
-			throw new RangeException(start,end);
+			System.out.println(start + "이상" + end + "이하의 값을 입력하세요.");
+//			throw new RangeException(start,end);
+			return -1;
 		}
 		return number;
 	}
-	int checkRange(int number) throws RangeException{
+	int checkRange(int number){
 		return checkRange(number,0,100);
 	}
 	

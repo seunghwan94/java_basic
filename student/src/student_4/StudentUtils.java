@@ -1,4 +1,4 @@
-package student_3;
+package student_4;
 
 import java.util.Scanner;
 import java.util.function.Predicate;
@@ -45,7 +45,7 @@ public class StudentUtils {
 				}
 			} catch (NumberFormatException iae) {
 				System.out.println("올바른 숫자를 입력해라");
-			}catch (IllegalArgumentException iae) {
+			} catch (IllegalArgumentException iae) {
 				System.out.println(iae.getMessage());
 			}
 		}
