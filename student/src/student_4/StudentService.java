@@ -1,9 +1,6 @@
 package student_4;
-import static student_4.StudentUtils.*;
+import static student_4.StudentUtils.next;
 import java.util.*;
-
-
-import student_1.RangeException;
 
 // Logic
 public class StudentService {
@@ -23,27 +20,17 @@ public class StudentService {
 	}
 	// 학생 등록
 	public void add() {
-		int no = next("학번", Integer.class, (t) -> findBy(t) == null, "중복되지 않는 학번을 입력하세요");
+		int no = next("학번", Integer.class, (t) -> findBy(t) == 0, "중복되지 않는 학번을 입력하세요");
 		String name = next("이름", String.class, (t) -> checkName(t)!=null, "다시 입력하세요.");
 		int kor = next("국어", Integer.class, (t) -> checkRange(t)!=-1, "다시 입력하세요.");
+		int eng = next("영어", Integer.class, (t) -> checkRange(t)!=-1, "다시 입력하세요.");
+		int mat = next("수학", Integer.class, (t) -> checkRange(t)!=-1, "다시 입력하세요.");
 
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		int eng = checkRange(nextInt("영어"));
-		int mat = checkRange(nextInt("수학"));
-		
-//		students.add(new Student(no, name, kor, eng, mat));
+		students.add(new Student(no, name, kor, eng, mat));
 	}
 	// 학생 목록 조회
-	public void list() {
-		int input = checkRange(nextInt("1.입력순 2.학번수 3.이름순 4.석차순"), 1, 4);
+	public void list() {	
+		int input = next("1.입력순 2.학번수 3.이름순 4.석차순", Integer.class, (t) -> checkRange(t, 1, 4) != -1, "다시 입력하세요." );
 		List<Student> tmp = null;
 		switch(input) {
 			case 1:
@@ -67,37 +54,36 @@ public class StudentService {
 	}
 	// 학생 이름, 점수 수정
 	public void modify() {
-		// 1. 학번 입력
-		// 2. 학번을 통한 탐색(배열) >> 학생
-		Student s = findBy(nextInt("학번"));
-		// 3. 이름, 국어, 영어, 수학 점수 변경
-		if(s == null) {
-			System.out.println("입력한 학번은 존재하지 않습니다.");
-			return;
-		}
-		s.setName(checkName(nextLine("이름")));
-		s.setKor(checkRange(nextInt("국어")));
-		s.setEng(checkRange(nextInt("영어")));
-		s.setMat(checkRange(nextInt("수학")));
+		// 익명클래스의 구현 내용 메서드 내부나 람다 문장에서는 지역변수는 final 취급합니다 -> 값변경 불가
+
+		// 만약에 지금 하려는걸 적용하려면
+		// 람다 들어가기전에 s의 값을 적용 완료해야해요
+		// findBy의 결과를 59행에서 적용하면
+		// 하려던거 할수있습니다
+
+		int i = next("학번", Integer.class ,(t) -> findBy(t) != 0, "없는 학생입니다. 다시 입력해주세요.");
+		
+		Student s = students.get(i-1);
+
+		s.setName(next("이름", String.class, (t) -> checkName(t) != null, "다시 입력하세요."));
+		s.setKor(next("국어", Integer.class, (t) -> checkRange(t)!=-1, "다시 입력하세요."));
+		s.setEng(next("영어", Integer.class, (t) -> checkRange(t)!=-1, "다시 입력하세요."));
+		s.setMat(next("수학", Integer.class, (t) -> checkRange(t)!=-1, "다시 입력하세요."));
 		
 	}
+
 	// 학생 삭제
 	public void remove() {
-		Student s = findBy(nextInt("학번"));
-		// 3. 이름, 국어, 영어, 수학 점수 변경
-		if(s == null) {
-			System.out.println("입력한 학번은 존재하지 않습니다.");
-			return;
-		}
-		students.remove(s);
+		int i = next("학번", Integer.class ,(t) -> findBy(t) != 0, "입력한 학번은 존재하지 않습니다, 다시 입력해주세요.");
+		students.remove(students.get(i-1));
 	}
-	
-	private Student findBy(int no) {
-		Student student = null;
+
+	private int findBy(int no) {
+		int student = 0;
 		
 		for(int i = 0 ; i < students.size() ; i++) {
 			if(students.get(i).getNo() == no) {
-				student = students.get(i);
+				student = i;
 			}
 		}
 		
@@ -131,7 +117,6 @@ public class StudentService {
 	int checkRange(int number,int start, int end){
 		if(number < start || number > end) {
 			System.out.println(start + "이상" + end + "이하의 값을 입력하세요.");
-//			throw new RangeException(start,end);
 			return -1;
 		}
 		return number;

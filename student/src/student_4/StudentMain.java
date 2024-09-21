@@ -1,7 +1,6 @@
 package student_4;
 
-//import student_3.RangeException;
-import student_3.StudentUtils.*;
+import static student_4.StudentUtils.next;
 
 public class StudentMain {
 	public static void main(String[] args) {
@@ -11,7 +10,7 @@ public class StudentMain {
 		
 		while(true) {
 			try {
-				int input = ss.checkRange(StudentUtils.nextInt("1. 조회 2. 등록 3. 수정 4. 삭제 5. 종료"),1,5);
+				int input = next("1. 조회 2. 등록 3. 수정 4. 삭제 5. 종료", Integer.class, (t) -> ss.checkRange(t,1,5) != -1, "다시 선택해 주세요.");
 				switch (input) {
 				case 1:
 					ss.list();
