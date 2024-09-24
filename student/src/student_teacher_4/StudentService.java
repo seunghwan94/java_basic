@@ -1,12 +1,19 @@
 package student_teacher_4;
 import static student_teacher_4.StudentUtils.next;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.*;
 
-import student_my_3.Student;
+import student_my_4.Student;
 import student_teacher_1.RangeException;
 
 // Logic
+@SuppressWarnings("unchecked")
 public class StudentService {
 	
 	private List<Student> students = new ArrayList<Student>();
@@ -15,10 +22,19 @@ public class StudentService {
 	private List<Student> studentsNameSort;
 	
 	{
-		students.add(new Student(1, "새똥이", 20, 90, 100));
-		students.add(new Student(2, "개똥이", 100, 66, 77));
-		students.add(new Student(3, "대똥이", 40, 90, 100));
-		students.add(new Student(4, "래똥이", 57, 66, 77));		
+			
+		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("students_teacher.ser"))){
+			students = (List<Student>) ois.readObject();
+		} catch (FileNotFoundException e) {
+			students.add(new Student(1, "새똥이", 20, 90, 100));
+			students.add(new Student(2, "개똥이", 100, 66, 77));
+			students.add(new Student(3, "대똥이", 40, 90, 100));
+			students.add(new Student(4, "래똥이", 57, 66, 77));
+			System.out.println("초기화 데이터");
+		} catch (IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+		} 
+		
 		cloneAndSort();
 		
 	}
@@ -146,6 +162,17 @@ public class StudentService {
 		studentsTotalSort.sort((o1,o2)->o1.total()-o2.total());
 		MyComp comp = new MyComp();
 		studentsTotalSort.sort(comp);
+		save();
+	}
+	
+	public void save() {
+		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("students_teacher.ser"))){
+			oos.writeObject(students);
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+		
 	}
 }
 

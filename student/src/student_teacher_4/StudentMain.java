@@ -1,6 +1,6 @@
 package student_teacher_4;
 
-import static student_teacher_.StudentUtils.next;
+import static student_teacher_4.StudentUtils.next;
 
 public class StudentMain {
 	public static void main(String[] args) {

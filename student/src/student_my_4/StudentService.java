@@ -19,10 +19,6 @@ public class StudentService {
 	private List<Student> studentsNameSort;
 	
 	{
-//		students.add(new Student(1, "새똥이", 20, 90, 100));
-//		students.add(new Student(2, "개똥이", 100, 66, 77));
-//		students.add(new Student(3, "대똥이", 40, 90, 100));
-//		students.add(new Student(4, "래똥이", 57, 66, 77));		
 		try {
 			load();
 		} catch (ClassNotFoundException | IOException e) {

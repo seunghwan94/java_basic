@@ -1,8 +1,11 @@
 package student_teacher_4;
 
+import java.io.Serializable;
+
 // 학생 예제 > java beans 명세서에 맞게끔 수정
 // field 는 private, method는 public
-public class Student implements Cloneable{
+@SuppressWarnings("serial")
+public class Student implements Cloneable,Serializable{
 
 	private int no;
 	private String name;
@@ -96,7 +99,6 @@ public class Student implements Cloneable{
 			if(arr != null)
 				obj.arr = arr.clone();
 		} catch (CloneNotSupportedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return obj;

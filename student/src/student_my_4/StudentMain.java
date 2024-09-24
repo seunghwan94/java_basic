@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class StudentMain {
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		// UI
 		// Create Read Update Delete
 		StudentService ss = new StudentService();
@@ -45,6 +45,9 @@ public class StudentMain {
 				System.out.println(e.getMessage());
 			}
 			catch (FileNotFoundException e) {
+				System.out.println(e.getMessage());
+			}
+			catch (IOException e ) {
 				System.out.println(e.getMessage());
 			}
 			
